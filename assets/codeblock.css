@@ -610,7 +610,7 @@ html[data-code-block-theme="dark"] {
 
 pre,
 code {
-  font-family: Roboto Mono, monospace;
+  font-family: 'Monaco', 'Roboto Mono', monospace;
 }
 
 code {
@@ -799,13 +799,13 @@ pre code {
 
 #code_copied_snackbar {
   visibility: hidden;
-  height: 40px;
+  font-size: 18px;
   min-width: 250px; 
   margin-left: -125px; 
   background-color: #333;
   color: #fff; 
   text-align: center; 
-  border-radius: 20px; 
+  border-radius: 25px; 
   padding: 16px;
   position: fixed; 
   z-index: 1; 

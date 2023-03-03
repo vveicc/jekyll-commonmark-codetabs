@@ -41,7 +41,7 @@ class CodeTabsCustomerRenderer < JekyllCommonMarkCustomRenderer
     #Changing theme button is added to all code blocks, but the copy button is configurable.
     out("<div class=\"code_switcher_code_action_container\">")
     if (is_copy_action_enabled(node))
-      out("<button class=\"code_switcher_copy_button\" title=\"Copy\" onclick=\"copyText(\'#{individual_code_block_id}\', \'#{get_code_copy_Lines(node)}\')\"></button>")
+      out("<button id=\"code_switcher_copy_button\" class=\"code_switcher_copy_button\" title=\"Copy\" onclick=\"copyText(\'#{individual_code_block_id}\', \'#{get_code_copy_Lines(node)}\')\"></button>")
     end
     out("<button class=\"code_switcher_theme_button\" onclick=\"updateTheme(true)\"></button>")
     out("</div>")

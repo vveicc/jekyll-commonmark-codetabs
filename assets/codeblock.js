@@ -40,6 +40,8 @@ function getRange(text) {
 };
 
 function copyText(codeBlockClass, copyRange) {
+    var copyButton = document.getElementById("code_switcher_copy_button");
+    copyButton.setAttribute("disabled", "true");
     var lines = [...new Set(copyRange.replace(/\s/g, "").split(",").flatMap(item => getRange(item)))];
     lines.sort();
 
@@ -52,7 +54,7 @@ function copyText(codeBlockClass, copyRange) {
     navigator.clipboard.writeText(copiedText);
     var snackbar = document.getElementById("code_copied_snackbar");
     snackbar.classList.add("show")
-    setTimeout(function() { snackbar.classList.remove("show"); }, 1800);
+    setTimeout(function() { snackbar.classList.remove("show"); copyButton.setAttribute("disabled", "false"); }, 1810);
 };
 
 var darkModeMatcher = window.matchMedia("(prefers-color-scheme: dark)");
