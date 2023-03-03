@@ -52,7 +52,7 @@ function copyText(codeBlockClass, copyRange) {
     navigator.clipboard.writeText(copiedText);
     var snackbar = document.getElementById("code_copied_snackbar");
     snackbar.classList.add("show")
-    setTimeout(function() { snackbar.classList.remove("show"); }, 3000);
+    setTimeout(function() { snackbar.classList.remove("show"); }, 1800);
 };
 
 var darkModeMatcher = window.matchMedia("(prefers-color-scheme: dark)");

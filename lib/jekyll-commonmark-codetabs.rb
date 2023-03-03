@@ -63,9 +63,9 @@ class CodeTabsCustomerRenderer < JekyllCommonMarkCustomRenderer
   end
 
   #Splits the code fence into the language and extra info
-  #Removes the codeCopyEnabled item which is just a flag used to enable showing a copy action button
+  #Removes the CopyDisable item which is just a flag used to enable showing a copy action button
   def split_lanugage_fence_info(node)
-    node&.fence_info&.sub(/ codeCopyEnabled=?"?([\ \-\,0-9]*)"?/, "")&.split(/[\s,]/, 2)
+    node&.fence_info&.sub(/ CopyDisable=?"?([\ \-\,0-9]*)"?/, "")&.split(/[\s,]/, 2)
   end
 
   #Gets the language used in the code fence (the part typically immediately after a triple backtick in markdown)
@@ -87,11 +87,11 @@ class CodeTabsCustomerRenderer < JekyllCommonMarkCustomRenderer
 
   #Determines whether the copy action should be shown for a given code block based on info in the code fence info
   def is_copy_action_enabled(node)
-    node&.fence_info&.include?("codeCopyEnabled") || false
+    !node&.fence_info&.include?("CopyDisable")
   end
 
   def get_code_copy_Lines(node)
-    node&.fence_info[/ codeCopyEnabled=?"?([\ \-\,0-9]*)"?/, 1] || ""
+    node&.fence_info[/ CopyDisable=?"?([\ \-\,0-9]*)"?/, 1] || ""
   end
 
   #Creates the tab header portion of the code switcher
@@ -125,7 +125,7 @@ class Jekyll::Converters::Markdown
   # A Markdown renderer which uses CodeTabsCustomerRenderer to output the
   # final document. The CodeTabsCustomerRenderer renderer mainly uses the
   # parent render but updates code blocks to allow for tabbing behavior
-  class JdvpCodeTabsCommonMark < CommonMarkGhPages
+  class CommonMarkCodeTabs < CommonMarkGhPages
     def convert(content)
       doc = CommonMarker.render_doc(content, @parse_options, @extensions)
       html = CodeTabsCustomerRenderer.new(

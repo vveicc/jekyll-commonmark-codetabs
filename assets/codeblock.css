@@ -719,6 +719,24 @@ pre code {
   border-color: #1769e0;
 }
 
+.code-tab-container li::before {
+  content: '';
+}
+
+.code-tab-container li {
+  margin: 0;
+  list-style-type: none;
+}
+
+.code-tab-switcher li::before {
+  content: '';
+}
+
+.code-tab-switcher li {
+  margin: 0;
+  list-style-type: none;
+}
+
 .code-tab-switcher {
   margin: 0;
   padding: 0;
@@ -781,24 +799,25 @@ pre code {
 
 #code_copied_snackbar {
   visibility: hidden;
+  height: 40px;
   min-width: 250px; 
   margin-left: -125px; 
   background-color: #333;
   color: #fff; 
   text-align: center; 
-  border-radius: 8px; 
+  border-radius: 20px; 
   padding: 16px;
   position: fixed; 
   z-index: 1; 
   left: 50%;
   bottom: 30px;
-  font-family: Roboto Mono, monospace;
+  font-family: 'Monaco', 'Roboto Mono', monospace;
 }
 
 #code_copied_snackbar.show {
   visibility: visible; 
-  -webkit-animation: code_copied_snackbar_fade_in 0.5s, code_copied_snackbar_fade_out 0.5s 2.5s;
-  animation: code_copied_snackbar_fade_in 0.5s, code_copied_snackbar_fade_out 0.5s 2.5s;
+  -webkit-animation: code_copied_snackbar_fade_in 0.3s, code_copied_snackbar_fade_out 0.3s 1.5s;
+  animation: code_copied_snackbar_fade_in 0.3s, code_copied_snackbar_fade_out 0.3s 1.5s;
 }
 
 /* Animations to fade the snackbar in and out */
